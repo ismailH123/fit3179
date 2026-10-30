@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "data": {
+    "url": "data/mvp_ppg_vs_leader.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  
+  "encoding": {
+    "x": {
+      "field": "season",
+      "type": "ordinal",
+      "title": "Year",
+      "sort": "ascending"
+    },
+    "y": {
+      "field": "ppg",
+      "type": "quantitative",
+      "title": "Points Per Game (PPG)"
+    },
+    "color": {
+      "field": "player_type",
+      "type": "nominal",
+      "title": "Player Category"
+    },
+    "tooltip": [
+      {"field": "season", "title": "Year"},
+      {"field": "player_type", "title": "Category"},
+      {"field": "ppg", "type": "quantitative", "title": "PPG"}
+    ]
+  }
+}

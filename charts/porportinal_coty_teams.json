@@ -1,0 +1,88 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 900,
+  "height": 600,
+  "projection": {
+    "type": "mercator",
+    "center": [155, -30],
+    "scale":600
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia_newZealand.geo.json",
+        "format": {
+          "type": "json"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eeeeee",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.8
+      }
+    },
+    {
+      "data": {
+        "url": "data/Coty_teams.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "longitude": "number",
+            "latitude": "number",
+            "coty_awards": "number"
+          }
+        }
+      },
+      "mark": {
+        "type": "circle",
+        "filled": true,
+        "color": "#1769aa",
+        "opacity": 0.8,
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "coty_awards",
+          "type": "quantitative",
+          "title": "Coach of the Year awards",
+          "scale": {
+            "range": [30, 1800],
+            "zero": true
+          }
+        },
+        "tooltip": [
+          {
+            "field": "team",
+            "type": "nominal",
+            "title": "NBL Team"
+          },
+          {
+            "field": "city",
+            "type": "nominal",
+            "title": "Home city"
+          },
+          {
+            "field": "coty_awards",
+            "type": "quantitative",
+            "title": "Coach of the Year awards"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

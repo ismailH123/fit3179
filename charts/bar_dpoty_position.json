@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 550,
+  "height": 350,
+  "data": {
+    "url": "data/DPOTY_position.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Year": "number"
+      }
+    }
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4
+  },
+  "encoding": {
+    "x": {
+      "field": "Position",
+      "type": "nominal",
+      "title": "Player Position",
+      "sort": ["PG", "SG", "SF", "PF", "C"]
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": "Number of Awards",
+      "axis": {
+        "tickMinStep": 1
+      }
+    },
+    "color": {
+      "field": "Position",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "domain": ["PG", "SG", "SF", "PF", "C"],
+        "range": ["#1769aa", "#e87522", "#2a9d8f", "#9b5de5", "#e63946"]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "Position",
+        "type": "nominal",
+        "title": "Position"
+      },
+      {
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Awards"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

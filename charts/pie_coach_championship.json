@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/coach_championship.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "mark": {
+    "type": "arc",
+    "outerRadius": 120
+  },
+  "encoding": {
+    "theta": {
+      "field": "champion",
+      "aggregate": "count",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "champion",
+      "type": "nominal",
+      "title": "Won Championship?",
+      "scale": {
+        "domain": ["Yes", "No"],
+        "range": ["#59A14F", "#E15759"]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "champion",
+        "title": "Won Championship?"
+      },
+      {
+        "field": "champion",
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Number of Seasons"
+      }
+    ]
+  },
+  "view": {
+    "stroke": null
+  }
+}

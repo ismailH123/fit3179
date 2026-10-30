@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+<title>Recognising Excellence: NBL Awards and Performance</title>
+</head>
+<body>
+
+<div class="container-fluid py-4">
+  <h1 class="mb-4 text-center">
+  Recognising Excellence: NBL Awards and Performance
+</h1>
+
+<p class="text-center" style="max-width: 60ch; margin: 0 auto;">
+  The NBL has a history of recognising outstanding players, coaches and teams through its annual awards. This visualisation explores these achievements, looking at what makes a player valuable, the importance of coaching and defence, and the connection between individual success and championship glory. It also highlights the Australian-born players who have helped shape the league over the years.
+</p>
+
+  <section class="mb-5">
+  <div class="mb-4">
+<h3 class="border-bottom pb-2 text-center mt-4">
+  01 — What determines an MVP?
+</h3>
+
+  <div class="row g-4">
+  <div class="col-12 col-lg-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-body text-center">
+        <h5 class="card-title">MVP vs Scoring Leader</h5>
+
+        <div id="line_chart" style="margin: 0 auto;"></div>
+
+        <p class="card-text  mt-3">
+          Over the years, the NBL’s top scorer has often gone hand in hand with winning MVP. In many seasons, the player putting up the most points was also recognised as the league’s most valuable player. However, there are seasons where a different player takes home the MVP award, showing that being the best player is about more than just scoring points.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-lg-6">
+    <div class="card shadow-sm h-100">
+      <div class="card-body text-center">
+        <h5 class="card-title">Games Played vs Minutes</h5>
+
+        <div id="scatter_chart" style="margin: 0 auto;"></div>
+
+        <p class="card-text mt-3">
+          Winning MVP often comes down to more than talent; staying healthy and available is just as important. A full season on the court gives players more opportunities to make a consistent impact and prove their value.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Section 2: Coaching Excellence -->
+<section class="mb-5">
+  <div class="mb-4">
+    <h3 class="border-bottom pb-2 text-center mt-4">
+      02 — Coaching Excellence
+    </h3>
+  </div>
+
+  <!-- First Row: Bar Chart and Pie Chart -->
+  <div class="row g-4 mb-4">
+
+    <!-- Bar Chart -->
+    <div class="col-12 col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body text-center">
+            <h5 class="card-title">
+            NBL Coach of the Year — Team Wins
+          </h5>
+                
+          <div id="bar_chart_1" class="d-flex justify-content-center"></div>
+
+          <p class="card-text mt-3">
+            Coach of the Year winners typically guide their teams to around 20 wins per season, winning approximately 66% of their games. This highlights the importance of building a winning team and maintaining consistency throughout the season.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pie Chart -->
+    <div class="col-12 col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title">
+            Coach of the Year Championship Results
+          </h5>
+
+          <div id="pie_chart_1" class="d-flex justify-content-center"></div>
+
+          <p class="card-text mt-3">
+            The pie chart shows that only around 30% of Coach of the Year winners went on to win the NBL Championship. This highlights that a successful regular season doesn't always guarantee a title. With the playoffs played over a series of games, opposing teams have time to adjust their tactics, making the championship a different challenge altogether.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Second Row: Map -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">
+            Coach of the Year Awards by Team
+          </h5>
+
+          <div id="proportional_symbol_map" class="d-flex justify-content-center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Section 3: Defensive Performance -->
+<section class="mb-5">
+  <div class="mb-4 text-center">
+    <h3 class="border-bottom pb-2 text-center">
+      03 — Defensive Performance
+    </h3>
+    <p class=" text-center">
+      Compare defensive statistics and explore the characteristics
+      of NBL Defensive Player of the Year winners.
+    </p>
+  </div>
+
+  <div class="row g-4">
+
+    <!-- Steals vs Blocks -->
+    <div class="col-12">
+      <div class="card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title text-center">
+             NBL Defensive Player of the Year: Steals vs Blocks vs Height
+          </h5>
+
+          <div id="bubble_chart" class="d-flex justify-content-center"></div>
+
+          <p class="card-text mt-3 text-center">
+            The bubble chart shows that Defensive Player of the Year winners make their impact in different ways. Some stand out through steals, disrupting opposition attacks, while others use their height and strength to protect the basket with blocks. It highlights that great defence isn't just about being the tallest player, but about using different skills to make life difficult for opponents
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Awards by Position -->
+    <div class="col-12 col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title text-center">
+            NBL Defensive Player of the Year by Position
+          </h5>
+
+          <div id="bar_chart_2" class="d-flex justify-content-center"></div>
+
+          <p class="card-text mt-3 text-center">
+            Interestingly, point guards have won the Defensive Player of the Year award more than any other position. This is somewhat unexpected, as centres and forwards are often associated with defensive roles such as blocking shots and protecting the paint.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Championship Results -->
+    <div class="col-12 col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title text-center">
+            Defensive Winners and Championships
+          </h5>
+
+          <div id="pie_chart_2" class="d-flex justify-content-center"></div>
+
+          <p class="card-textmt-3 text-center">
+            Having the best defender does not guarantee a championship. Scoring and overall team performance appear more influential in winning titles.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Section 4: Player Origins -->
+
+<section class="mb-5">
+  <div class="mb-4">
+    <h3 class="border-bottom pb-2 text-center">04 — Where NBL Greatness Begins</h3>
+    <p class="text-secondary text-center">
+      Explore where NBL award-winning players and coaches originate from,
+      and discover the geographic spread of basketball talent across Australia.
+    </p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Map 1: MVP states-->
+    <div class="col-12 col-lg-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <h5 class="card-title text-center">NBL MVPs by State and Territory</h5>
+          <p class="text-secondary">
+            Shows the number of NBL MVPs who played for teams in each state and territory.
+          </p>
+
+      <div id="choropleth_chart" class="w-100"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Map 2: All Award Winners -->
+<div class="col-12 col-lg-6">
+  <div class="card shadow-sm h-100">
+    <div class="card-body">
+      <h5 class="card-title text-center">Australian NBL Award Winners</h5>
+      <p class="text-secondary">
+        Compare birthplaces by award category: MVP, Coach of the Year
+        and Defensive Player of the Year (DPOTY).
+      </p>
+
+      <div id="dot_plot_map" class="w-100"></div>
+      <p class="text-muted small">
+        Note: Repeat winners are counted once. Winners of multiple awards
+        are assigned to the category they won most frequently.
+      </p>
+    </div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<div class="container my-4">
+  <div class="card source-card">
+    <div class="card-body py-3 px-4 text-center">
+      <p class="mb-1">
+        <strong>About this dashboard</strong>
+      </p>
+      <small class="text-muted">
+        Created by Ismail Hassan
+        <span class="mx-2">|</span>
+        Date: 30 October 2026
+        <span class="mx-2">|</span>
+        Data source:
+        <a
+          href="https://www.nbl.com.au/stats/statistics"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          NBL Statistics
+        </a>
+      </small>
+    </div>
+  </div>
+</div>
+
+
+<script src="vega_lite_vis.js"></script>
+</div>
+</html>

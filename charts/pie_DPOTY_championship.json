@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 400,
+  "data": {
+    "url": "data/DPOTY_championship.csv"
+  },
+  "mark": {
+    "type": "arc",
+    "outerRadius": 150,
+    "stroke": "white",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "theta": {
+      "field": "Number",
+      "type": "quantitative",
+      "title": "Number of Seasons"
+    },
+    "color": {
+      "field": "Won_Championship",
+      "type": "nominal",
+      "title": "Won Championship?",
+      "scale": {
+        "domain": ["Yes", "No"],
+        "range": ["#2a9d8f", "#e76f51"]
+      },
+      "legend": {
+        "orient": "right"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "Won_Championship",
+        "type": "nominal",
+        "title": "Won Championship?"
+      },
+      {
+        "field": "Number",
+        "type": "quantitative",
+        "title": "Number of Seasons"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

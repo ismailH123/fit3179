@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 650,
+  "height": 400,
+  "data": {
+    "url": "data/Defensive_poft_blocks_steals.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Year": "number",
+        "Steals_Per_Game": "number",
+        "Blocks_Per_Game": "number",
+        "Height_cm": "number"
+      }
+    }
+  },
+  "mark": {
+    "type": "circle",
+    "opacity": 0.7,
+    "stroke": "white",
+    "strokeWidth": 1
+  },
+  "encoding": {
+    "x": {
+      "field": "Steals_Per_Game",
+      "type": "quantitative",
+      "title": "Steals Per Game"
+    },
+    "y": {
+      "field": "Blocks_Per_Game",
+      "type": "quantitative",
+      "title": "Blocks Per Game"
+    },
+    "size": {
+      "field": "Height_cm",
+      "type": "quantitative",
+      "title": "Height (cm)",
+      "scale": {
+        "domain": [184, 213],
+        "range": [100, 1800]
+      },
+      "legend": {
+        "format": ".0f",
+        "values": [185, 195, 205, 213],
+        "title": "Height (cm)"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "Defensive_Player",
+        "type": "nominal",
+        "title": "Player"
+      },
+      {
+        "field": "Team",
+        "type": "nominal",
+        "title": "Team"
+      },
+      {
+        "field": "Steals_Per_Game",
+        "type": "quantitative",
+        "title": "Steals Per Game",
+        "format": ".1f"
+      },
+      {
+        "field": "Blocks_Per_Game",
+        "type": "quantitative",
+        "title": "Blocks Per Game",
+        "format": ".1f"
+      },
+      {
+        "field": "Height_cm",
+        "type": "quantitative",
+        "title": "Height (cm)",
+        "format": ".0f"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

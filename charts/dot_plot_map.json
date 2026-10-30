@@ -1,0 +1,102 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 550,
+  "height": 500,
+  "projection": {
+    "type": "mercator",
+    "center": [134, -27],
+    "scale": 650
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/anthwri/GeoJson-Data/master/australian-states.json",
+        "format": {
+          "type": "json"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eeeeee",
+        "stroke": "white",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/awards_birthplace.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "Longitude": "number",
+            "Latitude": "number"
+          }
+        }
+      },
+      "mark": {
+        "type": "circle",
+        "filled": true,
+        "size": 30,
+        "opacity": 0.85,
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "Longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Latitude",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "Award",
+          "type": "nominal",
+          "title": "Award Category",
+          "scale": {
+            "domain": [
+              "MVP",
+              "Coach of the Year",
+              "DPOTY"
+            ],
+            "range": [
+              "#2563eb",
+              "#e59b25",
+              "#16a085"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Player",
+            "type": "nominal",
+            "title": "Player"
+          },
+          {
+            "field": "Award",
+            "type": "nominal",
+            "title": "Award"
+          },
+          {
+            "field": "Longitude",
+            "type": "quantitative",
+            "title": "Longitude",
+            "format": ".4f"
+          },
+          {
+            "field": "Latitude",
+            "type": "quantitative",
+            "title": "Latitude",
+            "format": ".4f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

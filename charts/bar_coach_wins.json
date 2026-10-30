@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/coach_wins.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "mark": {
+    "type": "bar",
+    "color": "#4C78A8"
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "sort": "ascending"
+    },
+    "y": {
+      "field": "wins",
+      "type": "quantitative",
+      "title": "Number of Wins"
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "title": "Year"
+      },
+      {
+        "field": "wins",
+        "title": "Wins"
+      }
+    ]
+  }
+}

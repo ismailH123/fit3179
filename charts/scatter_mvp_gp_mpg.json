@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "NBL MVP games played vs average minutes per game",
+  "data": {
+    "url": "data/mvp_gp_mpg.csv"
+  },
+  "mark": {
+    "type": "point",
+    "filled": true,
+    "size": 120
+  },
+  "encoding": {
+    "x": {
+      "field": "games_played",
+      "type": "quantitative",
+      "title": "Games Played"
+    },
+    "y": {
+      "field": "minutes_per_game",
+      "type": "quantitative",
+      "title": "Average Minutes Per Game"
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "mvp",
+        "type": "nominal",
+        "title": "MVP"
+      },
+      {
+        "field": "games_played",
+        "type": "quantitative",
+        "title": "Games Played"
+      },
+      {
+        "field": "minutes_per_game",
+        "type": "quantitative",
+        "title": "Minutes Per Game",
+        "format": ".1f"
+      }
+    ]
+  }
+}
